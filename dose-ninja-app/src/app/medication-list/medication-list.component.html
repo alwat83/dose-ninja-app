@@ -1,0 +1,17 @@
+<div class="medication-list">
+  <h2>Medication List</h2>
+  <ul>
+    <li *ngFor="let medication of medications">
+      {{ medication.name }} ({{ medication.dose }})
+    </li>
+  </ul>
+</div>
+<div class="medication-list">
+  <h2>Medication List</h2>
+  <ul>
+    <li *ngFor="let medication of medications">
+      {{ medication.name }} ({{ medication.dose }})
+      <button (click)="trackMedication(medication)">Take</button>
+    </li>
+  </ul>
+</div>
