@@ -14,5 +14,18 @@ export class MedicationService {
   getMedications(): Observable<Medication[]> {
     return this.http.get<Medication[]>(this.apiUrl);
   }
-
+  editMedication(medication: any): void {
+    const index = this.medications.indexOf(medication);
+    if (index !== -1) {
+      this.medications[index] = medication;
+    }
+  }
+  deleteMedication(medication: any): void {
+    const index = this.medications.indexOf(medication);
+    if (index !== -1) {
+      this.medications.splice(index, 1);
+    }
+  }
+  
+  
 }

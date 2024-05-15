@@ -1,0 +1,32 @@
+<div *ngFor="let medication of medications">
+    <h2>{{ medication.name }}</h2>
+    <p>Dosage: {{ medication.dosage }}</p>
+    <p>Frequency: {{ medication.frequency }}</p>
+    <p>Notes: {{ medication.notes }}</p>
+    <hr>
+  </div>
+  <div *ngFor="let medication of medications">
+    <h2>{{ medication.name }}</h2>
+    <p>Dosage: {{ medication.dosage }}</p>
+    <p>Frequency: {{ medication.frequency }}</p>
+    <p>Notes: {{ medication.notes }}</p>
+    <button (click)="editMedication(medication)">Edit</button>
+    <button (click)="deleteMedication(medication)">Delete</button>
+    <hr>
+  </div>
+  <button [routerLink]="['/medications', medication.id, 'edit']">Edit</button>
+  <button (click)="deleteMedication(medication)">Delete</button>
+  <input type="search" [(ngModel)]="searchTerm">
+  <ng-container *ngFor="let medication of medications">
+    <!-- medication list items -->
+  </ng-container>
+  <select [(ngModel)]="sortOrder">
+    <option value="name">Name</option>
+    <option value="dosage">Dosage</option>
+    <option value="frequency">Frequency</option>
+  </select>
+  <ng-container *ngFor="let medication of medications">
+    <!-- medication list items -->
+  </ng-container>
+    
+  

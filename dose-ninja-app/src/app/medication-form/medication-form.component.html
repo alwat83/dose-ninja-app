@@ -1,0 +1,16 @@
+<form (ngSubmit)="onSubmit()">
+    <label>Name:</label>
+    <input type="text" [(ngModel)]="medication.name">
+    <br>
+    <label>Dosage:</label>
+    <input type="text" [(ngModel)]="medication.dosage">
+    <br>
+    <label>Frequency:</label>
+    <input type="text" [(ngModel)]="medication.frequency">
+    <br>
+    <label>Notes:</label>
+    <textarea [(ngModel)]="medication.notes"></textarea>
+    <br>
+    <button type="submit">Add Medication</button>
+  </form>
+  
