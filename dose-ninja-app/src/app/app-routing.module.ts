@@ -1,11 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { MedicationComponent } from './components/medication/medication.component';
-import { MedicationEditComponent } from './components/medication-edit/medication-edit.component';
+import { MedicationListComponent } from './medication-list/medication-list.component';
+import { MedicationDetailsComponent } from './medication-details/medication-details.component';
 
 const routes: Routes = [
-  { path: 'medications', component: MedicationComponent },
-  { path: 'medications/:id/edit', component: MedicationEditComponent }
+  { path: '', redirectTo: 'medications', pathMatch: 'full' },
+  { path: 'medications', component: MedicationListComponent },
+  { path: 'medications/:id', component: MedicationDetailsComponent }
 ];
 
 @NgModule({

@@ -15,3 +15,20 @@
     </li>
   </ul>
 </div>
+<ul>
+  <li *ngFor="let medication of medications">
+    {{ medication.name }} ({{ medication.adherenceStatus }})
+    <button (click)="logMedication(medication, true)">Take</button>
+    <button (click)="logMedication(medication, false)">Miss</button>
+  </li>
+</ul>
+<ul>
+  <li *ngFor="let medication of medications">
+    <div class="medication-item">
+      <h2>{{ medication.name }}</h2>
+      <p>Adherence Status: {{ medication.adherenceStatus }}</p>
+      <button (click)="logMedication(medication, true)">Take</button>
+      <button (click)="logMedication(medication, false)">Miss</button>
+    </div>
+  </li>
+</ul>

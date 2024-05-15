@@ -5,3 +5,8 @@ export class Medication {
   frequency: string;
   notes: string;
 }
+export class Medication {
+  // ... existing properties ...
+
+  adherenceStatus: string; // 'taken' or 'missed'
+}

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { MedicationService } from '../services/medication.service';
-import { MedicationTrackingService } from '../services/medication-tracking.service';
+import { Medication } from '../medication.model';
+import { MedicationLogService } from '../medication-log.service';
 
 @Component({
   selector: 'app-medication-list',
@@ -8,25 +8,16 @@ import { MedicationTrackingService } from '../services/medication-tracking.servi
   styleUrls: ['./medication-list.component.css']
 })
 export class MedicationListComponent implements OnInit {
-  medications: Medication[];
+  medications: Medication[] = [];
 
-  constructor(private medicationService: MedicationService, private medicationTrackingService: MedicationTrackingService) { }
+  constructor(private medicationLogService: MedicationLogService) { }
 
   ngOnInit(): void {
-    this.medicationService.getMedications().subscribe((medications: Medication[]) => {
-      this.medications = medications;
-    });
+    // Load medications from API or storage
   }
 
-  trackMedication(medication: Medication) {
-    const medicationTracking = new MedicationTracking();
-    medicationTracking.medicationId = medication.id;
-    medicationTracking.taken = true;
-    medicationTracking.dateTime = new Date();
-
-    this.medicationTrackingService.createMedicationTracking(medicationTracking).subscribe(() => {
-      console.log('Medication tracked successfully!');
-    });
+  logMedication(medication: Medication, isTaken: boolean) {
+    this.medicationLogService.logMedication(medication, isTaken);
+    medication.adherenceStatus = isTaken ? 'taken' : 'missed';
   }
-
 }

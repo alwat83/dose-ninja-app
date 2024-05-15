@@ -28,5 +28,13 @@
   <ng-container *ngFor="let medication of medications">
     <!-- medication list items -->
   </ng-container>
+  <ul>
+    <li *ngFor="let medication of medications">
+      {{ medication.name }} ({{ medication.adherenceStatus }})
+      <button (click)="logMedication(medication, true)">Take</button>
+      <button (click)="logMedication(medication, false)">Miss</button>
+    </li>
+  </ul>
+  
     
   
