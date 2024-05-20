@@ -7,7 +7,7 @@ import { MedicationService } from '../../services/medication.service';
   styleUrls: ['./medication.component.css']
 })
 export class MedicationComponent implements OnInit {
-  medications: any[];
+  medications: any[] = [];
 
   constructor(private medicationService: MedicationService) { }
 
@@ -19,20 +19,18 @@ export class MedicationComponent implements OnInit {
     this.medicationService.editMedication(medication);
   }
   
+
   deleteMedication(medication: any): void {
     this.medicationService.deleteMedication(medication);
   }
-  deleteMedication(medication: any): void {
-    this.medicationService.deleteMedication(medication);
-  }
-  searchTerm: string;
+  searchTerm!: string;
 
   filterMedications(): void {
     this.medications = this.medicationService.getMedications().filter(medication => {
       return medication.name.toLowerCase().includes(this.searchTerm.toLowerCase());
     });
   }
-  sortOrder: string;
+  sortOrder: string | undefined;
 
   sortMedications(): void {
     this.medications = this.medicationService.getMedications().sort((a, b) => {
