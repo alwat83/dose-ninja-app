@@ -1,14 +1,20 @@
+typescript
+
 import firebase from 'firebase/app';
 import 'firebase/auth';
 
 const firebaseConfig = {
-  apiKey: '<YOUR_API_KEY>',
-  authDomain: '<YOUR_AUTH_DOMAIN>',
-  projectId: '<YOUR_PROJECT_ID>',
+  apiKey: "AIzaSyBXqbiCuW6mtRaB0NBGwr0u4qc9Mv6_HVg",
+  authDomain: "dose-ninja-app.firebaseapp.com",
+  projectId: "dose-ninja-app",
+  storageBucket: "dose-ninja-app.appspot.com",
+  messagingSenderId: "133436426469",
+  appId: "1:133436426469:web:07227191ddf9d6b91e6c0c",
+  measurementId: "G-M6D0QNBBE4"
 };
 
-firebase.initializeApp(firebaseConfig);
+if (!firebase.apps.length) {
+  firebase.initializeApp(firebaseConfig);
+}
 
-const auth = firebase.auth();
-
-export { auth };
+export const auth = firebase.auth();
