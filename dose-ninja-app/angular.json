@@ -27,7 +27,8 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [],
+            "deployUrl": "https://dose-ninja-app.firebaseapp.com/"
           },
           "configurations": {
             "production": {
